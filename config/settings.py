@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = ''
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-ymb2e=s7gzep=aonr2wqhwwzpe9i7(!p*fz4)w*srer3*5+6ph')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'django-recipes-app.onrender.com', 
