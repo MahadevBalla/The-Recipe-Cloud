@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+from decouple import config
+import os, dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,16 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = ''
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-ymb2e=s7gzep=aonr2wqhwwzpe9i7(!p*fz4)w*srer3*5+6ph')
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = [
-    'django-recipes-app.onrender.com', 
-    '127.0.0.1', 
-    'localhost',
-]
+# SECRET_KEY = 'django-insecure-ymb2e=s7gzep=aonr2wqhwwzpe9i7(!p*fz4)w*srer3*5+6ph'
+
+SECRET_KEY = config("SECRET_KEY")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config("DEBUG", cast=bool)
+
+ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
 
 CSRF_TRUSTED_ORIGINS = ['https://django-recipes-app.onrender.com']
 
@@ -96,6 +96,7 @@ DATABASES = {
     }
 }
 
+DATABASES["default"] = dj_database_url.parse(config("DATABASE_URL"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

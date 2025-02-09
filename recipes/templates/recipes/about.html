@@ -1,5 +1,24 @@
-{% extends "recipes/base.html" %}
-<!--  -->
-{% block content %}
-<h1>About Recipes App</h1>
+{% extends "recipes/base.html" %} {% block content %}
+<div class="text-center container p-5 bg-white shadow-lg rounded">
+  <h1 class="fw-bold">Welcome to The Recipe Cloud!</h1>
+  <p class="lead text-muted">
+    Your go-to place for delicious recipes, shared by food lovers worldwide.
+  </p>
+
+  <div class="mt-4">
+    <h3 class="fw-semibold">Why Choose Us?</h3>
+    <ul class="list-unstyled">
+      <li>🍽️ Discover new and exciting recipes every day.</li>
+      <li>👨‍🍳 Share your own culinary creations with the world.</li>
+      <li>📖 Save and organize your favorite recipes in one place.</li>
+      <li>🌍 Connect with a community of food lovers.</li>
+    </ul>
+  </div>
+
+  <div class="mt-4">
+    <h3 class="fw-semibold">Join Us Today!</h3>
+    <p>Sign up, explore recipes, and start cooking something amazing!</p>
+    <a href="{% url 'user-register' %}" class="btn btn-primary">Get Started</a>
+  </div>
+</div>
 {% endblock content %}
