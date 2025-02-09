@@ -1,6 +1,6 @@
 # 🍽️ The Recipe Cloud App
 
-A stylish and interactive **recipe management app** built with Django and Bootstrap for a sleek user experience. Users can **add, edit, view, and delete recipes**, with authentication and dynamic UI enhancements.
+A stylish and interactive **recipe management app** built with Django, Bootstrap and custom CSS stylings for a sleek user experience. Users can **add, edit, view, and delete recipes**, with authentication and dynamic UI enhancements.
 
 ---
 
@@ -17,7 +17,7 @@ A stylish and interactive **recipe management app** built with Django and Bootst
 
 ## 🚀 Live Demo
 
-🔗 [Your Live App Link]
+🔗 https://the-recipe-cloud.onrender.com/
 
 ---
 
@@ -25,8 +25,7 @@ A stylish and interactive **recipe management app** built with Django and Bootst
 
 1️⃣ **Clone the Repository**
 
-git clone https://github.com/MahadevBalla/django-recipes-app.git
-cd django-recipes-app
+git clone https://github.com/MahadevBalla/The-Recipe-Cloud
 
 2️⃣ **Create a Virtual Environment & Install Dependencies**
 
