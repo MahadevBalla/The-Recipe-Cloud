@@ -25,7 +25,7 @@ A stylish and interactive **recipe management app** built with Django and Bootst
 
 1️⃣ **Clone the Repository**
 
-git clone https://github.com/your-username/django-recipes-app.git
+git clone https://github.com/MahadevBalla/django-recipes-app.git
 cd django-recipes-app
 
 2️⃣ **Create a Virtual Environment & Install Dependencies**
