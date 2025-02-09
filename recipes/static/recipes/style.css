@@ -21,7 +21,7 @@ body {
   color: #fff !important;
 }
 .navbar-brand:hover {
-  transform: scale(1.02);
+  transform: scale(1.015);
   color: #ff9800 !important;
 }
 .nav-link {
