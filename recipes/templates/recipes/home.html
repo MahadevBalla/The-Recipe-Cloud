@@ -10,7 +10,9 @@
         <h6 class="card-subtitle mb-2 text-muted">
           {{ recipe.updated_at|date:"F d, Y" }}
         </h6>
-        <a href="{% url 'recipes-detail' recipe.pk%}" class="btn btn-primary"
+        <a
+          href="{% url 'recipes-detail' recipe.pk%}"
+          class="btn btn-outline-primary"
           >View Recipe</a
         >
       </div>

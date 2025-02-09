@@ -11,17 +11,18 @@ body {
 
 /* Navbar */
 .navbar {
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  background: linear-gradient(45deg, #4caf50, #009688);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .navbar-brand {
   font-weight: bold;
   font-size: 1.5rem;
   transition: 0.3s;
+  color: #fff !important;
 }
 .navbar-brand:hover {
-  transform: scale(1.05);
-  color: #fff;
+  transform: scale(1.02);
+  color: #ff9800 !important;
 }
 .nav-link {
   color: #fff !important;
@@ -38,6 +39,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 .card:hover {
   transform: scale(1.03);
@@ -51,26 +53,28 @@ body {
   padding: 10px 20px;
 }
 .btn-primary {
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  background: linear-gradient(45deg, #ff9800, #ffc107);
   border: none;
+  color: #fff;
 }
 .btn-primary:hover {
-  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  background: linear-gradient(45deg, #ffc107, #ff9800);
   transform: scale(1.05);
 }
 .btn-danger {
-  background: linear-gradient(45deg, #d9534f, #c9302c);
+  background: linear-gradient(45deg, #ff5252, #ff416c);
   border: none;
+  color: #fff;
 }
 .btn-danger:hover {
-  background: linear-gradient(45deg, #c9302c, #d9534f);
+  background: linear-gradient(45deg, #ff416c, #ff5252);
   transform: scale(1.05);
 }
 
 /* Recipe Detail Pg */
 .display-4 {
   font-size: 3rem;
-  color: #6a11cb;
+  color: #4caf50;
 }
 .lead {
   font-size: 1.5rem;
@@ -89,7 +93,7 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Parallax Background */
+/* Bg */
 body::before {
   content: "";
   position: fixed;
@@ -102,13 +106,13 @@ body::before {
   z-index: -1;
 }
 
-/* About Pg */
+/* Abt Pg */
 .about-container {
   animation: float 4s ease-in-out infinite;
 }
 .about-container h1 {
   font-size: 3rem;
-  color: #6a11cb;
+  color: #4caf50;
 }
 .about-container p {
   font-size: 1.2rem;
@@ -125,7 +129,7 @@ body::before {
 /* Home Pg */
 .card-title {
   font-size: 1.5rem;
-  color: #2575fc;
+  color: #4caf50;
 }
 .card-subtitle {
   font-size: 1rem;
@@ -140,7 +144,7 @@ body::before {
   padding: 10px 20px;
 }
 
-/* Form */
+/* Forms */
 .form-container {
   animation: fadeIn 1s ease;
   background: rgba(255, 255, 255, 0.9);
@@ -151,7 +155,7 @@ body::before {
 
 .form-group legend {
   font-size: 2rem;
-  color: #6a11cb;
+  color: #4caf50;
   margin-bottom: 20px;
 }
 
@@ -168,30 +172,30 @@ body::before {
 }
 
 .form-control:focus {
-  border-color: #6a11cb;
-  box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
 }
 
 .btn-outline-primary {
-  border: 2px solid #6a11cb;
-  color: #6a11cb;
+  border: 2px solid #4caf50;
+  color: #4caf50;
   transition: all 0.3s ease;
 }
 
 .btn-outline-primary:hover {
-  background: #6a11cb;
+  background: #4caf50;
   color: #fff;
   transform: scale(1.05);
 }
 
 .btn-outline-danger {
-  border: 2px solid #d9534f;
-  color: #d9534f;
+  border: 2px solid #ff5252;
+  color: #ff5252;
   transition: all 0.3s ease;
 }
 
 .btn-outline-danger:hover {
-  background: #d9534f;
+  background: #ff5252;
   color: #fff;
   transform: scale(1.05);
 }
@@ -207,7 +211,7 @@ body::before {
 
 .profile-container h1 {
   font-size: 2.5rem;
-  color: #6a11cb;
+  color: #4caf50;
   margin-bottom: 20px;
 }
 
