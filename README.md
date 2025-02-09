@@ -74,26 +74,49 @@ Open your browser and navigate to:
 ## 📂 Project Structure
 
 The-Recipe-Cloud/
+
 ├── manage.py # Django management script
+
 ├── requirements.txt # Project dependencies
+
 ├── runtime.txt # Specifies Python version for deployment
+
 ├── env/ # Virtual environment (ignored in version control)
+
 ├── recipes/ # Main Django app for recipe management
+
 │ ├── migrations/ # Database migrations
+
 │ ├── static/ # Static files (CSS, images)
+
 │ ├── templates/ # HTML templates for recipes
+
 │ ├── models.py # Database models for recipes
+
 │ ├── views.py # Views for recipe management
+
 │ ├── urls.py # URL routes for recipes
+
 │ └── ... # Other app-specific files
+
 ├── users/ # Django app for user authentication
+
 │ ├── migrations/ # Database migrations
+
 │ ├── templates/ # HTML templates for authentication
+
 │ ├── forms.py # User registration and login forms
+
 │ ├── views.py # Views for authentication
+
 │ └── ... # Other app-specific files
+
 ├── config/ # Django project settings
+
 │ ├── settings.py # Project settings (e.g., database, static files)
+
 │ ├── urls.py # Main URL routing for the project
+
 │ └── ... # Other project-specific files
+
 └── README.md # Project documentation
