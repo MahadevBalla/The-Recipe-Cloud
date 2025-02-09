@@ -1,7 +1,7 @@
 {% extends "recipes/base.html" %} {% load crispy_forms_tags %}
 <!--  -->
 {% block content %}
-<div class="container p-5 bg-white shadow-lg rounded">
+<div class="container form-container">
   <form action="" method="post">
     {% csrf_token %}
     <fieldset class="form-group">
@@ -9,11 +9,11 @@
       <!-- {{ form.as_p }} -->
       {{ form|crispy }}
     </fieldset>
-    <div class="form-grp py-3">
+    <div class="form-grp py-3 text-center">
       <input class="btn btn-outline-primary" type="submit" value="Login" />
     </div>
   </form>
-  <div class="border-top pt-3">
+  <div class="border-top pt-3 text-center">
     Don't have an account? <a href="{% url 'user-register' %}">Register here</a>
   </div>
 </div>

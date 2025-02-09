@@ -1,9 +1,12 @@
-/* General Styling */
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: #f8f9fa;
   color: #333;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 /* Navbar */
@@ -17,7 +20,7 @@ body {
   transition: 0.3s;
 }
 .navbar-brand:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   color: #fff;
 }
 .nav-link {
@@ -37,13 +40,13 @@ body {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Buttons */
+/* Btns */
 .btn {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
   border-radius: 50px;
   padding: 10px 20px;
 }
@@ -53,17 +56,34 @@ body {
 }
 .btn-primary:hover {
   background: linear-gradient(45deg, #ff4b2b, #ff416c);
-  transform: translateY(-2px);
+  transform: scale(1.05);
+}
+.btn-danger {
+  background: linear-gradient(45deg, #d9534f, #c9302c);
+  border: none;
 }
 .btn-danger:hover {
-  background: linear-gradient(45deg, #d9534f, #c9302c);
-  transform: translateY(-2px);
+  background: linear-gradient(45deg, #c9302c, #d9534f);
+  transform: scale(1.05);
 }
 
-/* Recipe Detail Page */
+/* Recipe Detail Pg */
+.display-4 {
+  font-size: 3rem;
+  color: #6a11cb;
+}
+.lead {
+  font-size: 1.5rem;
+  color: #495057;
+}
+.btn-lg {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+}
+
 .container.py-5 {
-  animation: fadeIn 1s ease-in-out;
-  background: rgba(255, 255, 255, 0.85);
+  animation: fadeIn 1s ease;
+  background: rgba(255, 255, 255, 0.9);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -82,6 +102,115 @@ body::before {
   z-index: -1;
 }
 
+/* About Pg */
+.about-container {
+  animation: float 4s ease-in-out infinite;
+}
+.about-container h1 {
+  font-size: 3rem;
+  color: #6a11cb;
+}
+.about-container p {
+  font-size: 1.2rem;
+}
+.about-container ul li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.about-container .btn-primary {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+}
+
+/* Home Pg */
+.card-title {
+  font-size: 1.5rem;
+  color: #2575fc;
+}
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+.card-text {
+  font-size: 1rem;
+  color: #495057;
+}
+.card .btn-primary {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+/* Form */
+.form-container {
+  animation: fadeIn 1s ease;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group legend {
+  font-size: 2rem;
+  color: #6a11cb;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #495057;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+}
+
+.btn-outline-primary {
+  border: 2px solid #6a11cb;
+  color: #6a11cb;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background: #6a11cb;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.btn-outline-danger {
+  border: 2px solid #d9534f;
+  color: #d9534f;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background: #d9534f;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Profile Pg */
+.profile-container {
+  animation: fadeIn 1s ease;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h1 {
+  font-size: 2.5rem;
+  color: #6a11cb;
+  margin-bottom: 20px;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -91,5 +220,28 @@ body::before {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
