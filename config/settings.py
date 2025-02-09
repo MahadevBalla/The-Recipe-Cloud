@@ -26,8 +26,13 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-ymb2e=s7gzep=aonr2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://django-recipes-app.onrender.com']
+ALLOWED_HOSTS = [
+    'django-recipes-app.onrender.com', 
+    '127.0.0.1', 
+    'localhost',
+]
 
+CSRF_TRUSTED_ORIGINS = ['https://django-recipes-app.onrender.com']
 
 # Application definition
 
