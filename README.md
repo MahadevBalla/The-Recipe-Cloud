@@ -1,4 +1,4 @@
-# 🍽️ Django Recipes App
+# 🍽️ The Recipe Cloud App
 
 A stylish and interactive **recipe management app** built with Django and Bootstrap for a sleek user experience. Users can **add, edit, view, and delete recipes**, with authentication and dynamic UI enhancements.
 
