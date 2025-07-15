@@ -1,47 +1,47 @@
-# 🍽️ The Recipe Cloud App
+# The Recipe Cloud App
 
 **The Recipe Cloud** is a modern and interactive recipe management application built with **Django**, **Bootstrap**, and custom **CSS** for a sleek and seamless user experience. Users can **add, edit, view, and delete recipes**, with authentication and dynamic UI enhancements.
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
-🔐 **User Authentication:** Secure login, registration, and profile management.
+- **User Authentication:** Secure login, registration, and profile management.
 
-📝 **Recipe Management:** Full CRUD (Create, Read, Update, Delete) functionality for recipes.
+- **Recipe Management:** Full CRUD (Create, Read, Update, Delete) functionality for recipes.
 
-🎨 **Sleek UI:** A responsive and interactive user interface powered by Bootstrap and custom CSS.
+- **Sleek UI:** A responsive and interactive user interface powered by Bootstrap and custom CSS.
 
-🃏 **Card-Based Layout:** Beautifully designed recipe cards with smooth animations.
+- **Card-Based Layout:** Beautifully designed recipe cards with smooth animations.
 
-🗂️ **Database Support:** Supports both PostgreSQL (for production) and SQLite (for development).
+- **Database Support:** Supports both PostgreSQL (for production) and SQLite (for development).
 
-📋 **Enhanced Forms:** Stylish and user-friendly forms using Django Crispy Forms.
+- **Enhanced Forms:** Stylish and user-friendly forms using Django Crispy Forms.
 
-🌐 **Responsive Design:** Optimized for all devices, from desktops to mobile phones.
+- **Responsive Design:** Optimized for all devices, from desktops to mobile phones.
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 Check out the **live version** of the app:
 
-🔗 [The Recipe Cloud](https://the-recipe-cloud.onrender.com/)
+[The Recipe Cloud](https://the-recipe-cloud.onrender.com/)
 
 ---
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 Follow these steps to set up **The Recipe Cloud** on your local machine:
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```sh
 git clone https://github.com/MahadevBalla/The-Recipe-Cloud
 cd The-Recipe-Cloud
 ```
 
-### 2️⃣ Create a Virtual Environment & Install Dependencies
+### Create a Virtual Environment & Install Dependencies
 
 ```sh
 python -m venv env
@@ -49,22 +49,22 @@ source env/bin/activate  # On Windows: env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Apply Migrations & Run the Server
+### Apply Migrations & Run the Server
 
 ```sh
 python manage.py migrate
 python manage.py runserver
 ```
 
-### 4️⃣ Access the App
+### Access the App
 
 Open your browser and navigate to:
 
-🌐 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** Django
 - **Frontend:** Bootstrap, Custom CSS
@@ -74,7 +74,7 @@ Open your browser and navigate to:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 The-Recipe-Cloud/
