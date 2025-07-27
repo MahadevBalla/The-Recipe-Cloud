@@ -1,9 +1,22 @@
-{% extends "recipes/base.html" %} {% load crispy_forms_tags %} {% comment %} ---
-{% endcomment %} {% block content %}
-<div class="container">
-  <h2>You've logged out !</h2>
-  <div class="border-top pt-3">
-    <a href="{% url 'user-login' %}">Log back in here</a>
-  </div>
+{% extends "recipes/base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="form-container text-center">
+            <i class="fas fa-sign-out-alt fa-4x text-muted mb-4"></i>
+            <h2 class="text-gradient mb-3">Successfully Logged Out</h2>
+            <p class="lead text-muted mb-4">Thank you for using The Recipe Cloud!</p>
+            
+            <div class="d-grid gap-2">
+                <a href="{% url 'user-login' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-sign-in-alt me-2"></i>Sign In Again
+                </a>
+                <a href="{% url 'recipes-home' %}" class="btn btn-outline-primary">
+                    <i class="fas fa-home me-2"></i>Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-{% endblock content %}
+{% endblock %}

@@ -1,33 +1,129 @@
-{% extends "recipes/base.html" %} {% block content %}
-<div class="container profile-container">
-  <h1>{{ user.username }}</h1>
-  <p class="lead">Welcome to your profile page!</p>
-  <div class="mt-4">
-    <h3>Your Recipes</h3>
-    {% if recipes %}
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      {% for recipe in recipes %}
-      <div class="col">
-        <div class="card shadow-lg border-0 h-100">
-          <div class="card-body">
-            <h5 class="card-title fw-bold">{{ recipe.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              {{ recipe.updated_at|date:"F d, Y" }}
-            </h6>
-            <p class="card-text">{{ recipe.description }}</p>
-            <a
-              href="{% url 'recipes-detail' recipe.pk %}"
-              class="btn btn-primary"
-              >View Recipe</a
-            >
-          </div>
+{% extends "recipes/base.html" %}
+
+{% block content %}
+<div class="profile-container">
+    <!-- Profile Header -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-8">
+            <div class="d-flex align-items-center">
+                <div class="profile-avatar me-4">
+                    <i class="fas fa-user-circle fa-5x text-gradient"></i>
+                </div>
+                <div>
+                    <h1 class="text-gradient mb-2">{{ user.username|title }}</h1>
+                    <p class="lead text-muted mb-1">
+                        <i class="fas fa-envelope me-2"></i>{{ user.email }}
+                    </p>
+                    <p class="text-muted">
+                        <i class="fas fa-calendar-alt me-2"></i>Member since {{ user.date_joined|date:"F Y" }}
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-      {% endfor %}
+        <div class="col-md-4 text-md-end">
+            <a href="{% url 'recipes-create' %}" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus-circle me-2"></i>Add New Recipe
+            </a>
+        </div>
     </div>
-    {% else %}
-    <p class="text-muted">You haven't added any recipes yet.</p>
-    {% endif %}
-  </div>
+
+    <!-- Recipe Stats -->
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <div class="card glass-effect text-center border-0">
+                <div class="card-body">
+                    <i class="fas fa-utensils fa-2x text-gradient mb-2"></i>
+                    <h3 class="text-gradient">{{ recipes|length }}</h3>
+                    <p class="text-muted mb-0">Total Recipes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card glass-effect text-center border-0">
+                <div class="card-body">
+                    <i class="fas fa-heart fa-2x text-gradient mb-2"></i>
+                    <h3 class="text-gradient">0</h3>
+                    <p class="text-muted mb-0">Favorites</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card glass-effect text-center border-0">
+                <div class="card-body">
+                    <i class="fas fa-star fa-2x text-gradient mb-2"></i>
+                    <h3 class="text-gradient">0</h3>
+                    <p class="text-muted mb-0">Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User's Recipes -->
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h3 class="text-gradient mb-0">
+                    <i class="fas fa-book-open me-2"></i>Your Recipes
+                </h3>
+                {% if recipes %}
+                <span class="badge bg-primary fs-6">{{ recipes|length }} Recipe{{ recipes|length|pluralize }}</span>
+                {% endif %}
+            </div>
+            
+            {% if recipes %}
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for recipe in recipes %}
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-custom">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-start justify-content-between mb-3">
+                                <h5 class="card-title text-gradient mb-0">{{ recipe.title }}</h5>
+                                <div class="dropdown">
+                                    <button class="btn btn-link text-muted p-0" data-bs-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'recipes-update' recipe.pk %}">
+                                                <i class="fas fa-edit me-2"></i>Edit
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-danger" href="{% url 'recipes-delete' recipe.pk %}">
+                                                <i class="fas fa-trash me-2"></i>Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h6 class="card-subtitle mb-3 text-muted">
+                                <i class="fas fa-clock me-1"></i>{{ recipe.updated_at|date:"M d, Y" }}
+                            </h6>
+                            
+                            <p class="card-text flex-grow-1">{{ recipe.description|truncatewords:20 }}</p>
+                            
+                            <div class="mt-auto">
+                                <a href="{% url 'recipes-detail' recipe.pk %}" class="btn btn-primary">
+                                    <i class="fas fa-eye me-2"></i>View Recipe
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-utensils fa-4x text-muted mb-4"></i>
+                <h4 class="text-muted mb-3">No Recipes Yet</h4>
+                <p class="text-muted mb-4">Start sharing your delicious recipes with the community!</p>
+                <a href="{% url 'recipes-create' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-plus-circle me-2"></i>Add Your First Recipe
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </div>
-{% endblock content %}
+{% endblock %}

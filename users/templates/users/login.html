@@ -1,19 +1,39 @@
-{% extends "recipes/base.html" %} {% load crispy_forms_tags %} {% comment %} ---
-{% endcomment %} {% block content %}
-<div class="container form-container">
-  <form action="" method="post">
-    {% csrf_token %}
-    <fieldset class="form-group">
-      <legend class="border-bottom mb-4">Login</legend>
-      <!-- {{ form.as_p }} -->
-      {{ form|crispy }}
-    </fieldset>
-    <div class="form-grp py-3 text-center">
-      <input class="btn btn-outline-primary" type="submit" value="Login" />
+{% extends "recipes/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="form-container">
+            <div class="text-center mb-4">
+                <i class="fas fa-sign-in-alt fa-3x text-gradient mb-3"></i>
+                <h2 class="text-gradient">Welcome Back</h2>
+                <p class="text-muted">Sign in to your account</p>
+            </div>
+            
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <fieldset class="form-group mb-4">
+                    <legend class="visually-hidden">Login Form</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                
+                <div class="d-grid gap-2 mb-3">
+                    <button class="btn btn-primary btn-lg" type="submit">
+                        <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                    </button>
+                </div>
+            </form>
+            
+            <div class="text-center">
+                <div class="border-top pt-3">
+                    <p class="text-muted mb-2">Don't have an account?</p>
+                    <a href="{% url 'user-register' %}" class="btn btn-outline-primary">
+                        <i class="fas fa-user-plus me-2"></i>Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </form>
-  <div class="border-top pt-3 text-center">
-    Don't have an account? <a href="{% url 'user-register' %}">Register here</a>
-  </div>
 </div>
-{% endblock content %}
+{% endblock %}
