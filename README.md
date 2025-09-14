@@ -14,19 +14,11 @@
 
 - **Card-Based Layout:** Beautifully designed recipe cards with smooth animations.
 
-- **Database Support:** Supports both PostgreSQL (for production) and SQLite (for development).
-
 - **Enhanced Forms:** Stylish and user-friendly forms using Django Crispy Forms.
 
 - **Responsive Design:** Optimized for all devices, from desktops to mobile phones.
 
----
-
-## Live Demo
-
-Check out the **live version** of the app:
-
-[The Recipe Cloud](https://the-recipe-cloud.onrender.com/)
+- **Hadoop Integration:** Recipes’ images and videos are stored in **HDFS** using a Namenode + Datanode cluster.
 
 ---
 
@@ -45,7 +37,7 @@ cd The-Recipe-Cloud
 
 ```sh
 python -m venv env
-source env/bin/activate  # On Windows: env\Scripts\activate
+source env/bin/activate  # On Windows: env/Scripts/activate
 pip install -r requirements.txt
 ```
 
@@ -64,14 +56,26 @@ Open your browser and navigate to:
 
 ---
 
+## Running with Docker & Hadoop
+The project includes a Dockerized setup with Django + Hadoop (Namenode & Datanodes).
+
+### Start the Cluster
+```sh
+docker-compose up -d --build
+```
+### Access Services
+- Django Web App: http://localhost:8000
+- Hadoop Namenode UI: http://localhost:9870
+
+---
+
 ## Tech Stack
 
 - **Backend:** Django
 - **Frontend:** Bootstrap, Custom CSS
-- **Database:** PostgreSQL, SQLite
+- **Database:** SQLite
 - **Forms:** Django Crispy Forms
-- **Deployment:** Render
-
+- **Data Storage:** Hadoop (HDFS – Namenode + Datanodes)
 ---
 
 ## Project Structure
@@ -80,8 +84,10 @@ Open your browser and navigate to:
 The-Recipe-Cloud/
 │── manage.py             # Django management script
 │── requirements.txt      # Project dependencies
-│── runtime.txt          # Specifies Python version for deployment
-│── env/                 # Virtual environment (ignored in version control)
+│── runtime.txt           # Specifies Python version for deployment
+│── docker-compose.yml    # Django + Hadoop cluster config
+│── Dockerfile            # Django app container config
+│── .env                  # Environment variables
 │
 ├── recipes/              # Main Django app for recipe management
 │   ├── migrations/       # Database migrations

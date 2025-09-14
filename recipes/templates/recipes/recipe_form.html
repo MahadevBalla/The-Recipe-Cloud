@@ -1,26 +1,17 @@
-{% extends "recipes/base.html" %} {% load crispy_forms_tags %} {% comment %} ---
-{% endcomment %} {% block content %}
-<div class="container form-container">
-  <form
-    class="p-4 border shadow-lg rounded"
-    action="{% url 'recipes-create' %}"
-    method="post"
-  >
-    {% csrf_token %}
-    <fieldset class="form-group">
-      <legend class="border-bottom mb-4 fw-bold">Add a Recipe</legend>
-      {{ form|crispy }}
-    </fieldset>
-    <div class="text-center py-3">
-      <input
-        class="btn btn-outline-primary w-100"
-        type="submit"
-        value="Submit"
-      />
+{% extends 'recipes/base.html' %} {% load crispy_forms_tags %} {% comment %}---{% endcomment %} {% block content %}
+  <div class="container form-container">
+    <form class="p-4 border shadow-lg rounded" action="{% url 'recipes-create' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4 fw-bold">Add a Recipe</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <div class="text-center py-3">
+        <input class="btn btn-outline-primary w-100" type="submit" value="Submit" />
+      </div>
+    </form>
+    <div class="border-top pt-3 text-center">
+      <a class="text-decoration-none" href="{% url 'recipes-home' %}">Cancel</a>
     </div>
-  </form>
-  <div class="border-top pt-3 text-center">
-    <a class="text-decoration-none" href="{% url 'recipes-home' %}">Cancel</a>
   </div>
-</div>
 {% endblock %}

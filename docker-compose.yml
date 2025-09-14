@@ -1,5 +1,44 @@
+version: "3"
 
 services:
+  # Hadoop Namenode
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=test-cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+    ports:
+      - "9870:9870"   # Web UI + WebHDFS
+      - "9000:9000"   # HDFS RPC
+    volumes:
+      - namenode-data:/hadoop/dfs/name
+
+  # Hadoop Datanode 1
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode1
+    environment:
+      - CLUSTER_NAME=test-cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+    volumes:
+      - datanode1-data:/hadoop/dfs/data
+    depends_on:
+      - namenode
+
+  # Hadoop Datanode 2
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode2
+    environment:
+      - CLUSTER_NAME=test-cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+    volumes:
+      - datanode2-data:/hadoop/dfs/data
+    depends_on:
+      - namenode
+
+  # Django Web App
   web:
     build: .
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
@@ -9,3 +48,10 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    depends_on:
+      - namenode
+
+volumes:
+  namenode-data:
+  datanode1-data:
+  datanode2-data:
