@@ -1,40 +1,29 @@
-pipeline {
-    agent any
-
-    stages {
+node {
+    try {
 
         stage('Prepare Env') {
-            steps {
-                withCredentials([file(credentialsId: 'recipecloud-env', variable: 'ENVFILE')]) {
-                    sh 'cp $ENVFILE .env'
-                }
+            withCredentials([file(credentialsId: 'recipecloud-env', variable: 'ENVFILE')]) {
+                sh 'cp $ENVFILE .env'
             }
         }
 
         stage('Build') {
-            steps {
-                sh '''
+            sh '''
                 docker build -t recipecloud:latest .
-                '''
-            }
+            '''
         }
 
         stage('Deploy') {
-            steps {
-                sh '''
+            sh '''
                 docker compose down || true
                 docker compose up --build -d
-                '''
-            }
+            '''
         }
-    }
 
-    post {
-        success {
-            echo "Pipeline executed successfully!"
-        }
-        failure {
-            echo "Pipeline failed."
-        }
+        echo "Pipeline executed successfully!"
+
+    } catch (Exception e) {
+        echo "Pipeline failed."
+        throw e
     }
 }
