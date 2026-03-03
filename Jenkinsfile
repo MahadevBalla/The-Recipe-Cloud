@@ -3,10 +3,17 @@ pipeline {
 
     stages {
 
+        stage('Prepare Env') {
+            steps {
+                withCredentials([file(credentialsId: 'recipecloud-env', variable: 'ENVFILE')]) {
+                    sh 'cp $ENVFILE .env'
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 sh '''
-                echo "Building Docker image..."
                 docker build -t recipecloud:latest .
                 '''
             }
@@ -15,7 +22,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                echo "Deploying application using Docker Compose..."
                 docker compose down || true
                 docker compose up --build -d
                 '''
@@ -25,10 +31,10 @@ pipeline {
 
     post {
         success {
-            echo "CI/CD pipeline executed successfully."
+            echo "Pipeline executed successfully!"
         }
         failure {
-            echo "CI/CD pipeline failed."
+            echo "Pipeline failed."
         }
     }
 }
