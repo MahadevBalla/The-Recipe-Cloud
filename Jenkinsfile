@@ -1,5 +1,9 @@
-node {
+node('agent') {
     try {
+
+        stage('Checkout') {
+	    checkout scm
+        }
 
         stage('Prepare Env') {
             withCredentials([file(credentialsId: 'recipecloud-env', variable: 'ENVFILE')]) {
