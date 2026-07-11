@@ -2,6 +2,9 @@
 
 **The Recipe Cloud** is a modern and interactive recipe management application built with **Django**, **Bootstrap**, and custom **CSS** for a sleek and seamless user experience. Users can **add, edit, view, and delete recipes**, with authentication and dynamic UI enhancements.
 
+## Demo
+[View Project Demo](https://youtu.be/zFtScEXJ_s4)
+
 ---
 
 ## Key Features
